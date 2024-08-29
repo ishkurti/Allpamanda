@@ -86,11 +86,11 @@ var territories = {
         label: "Shuar Arutam Territory",
         imageUrl: './charts/shuarArtuam.png'
     },
-    "Indigenous Territories (RAISG)": {
+  "Indigenous Territories (RAISG)": {
         data: territoriosRAISG,
         center: [-1.7, -77.5], // Example coordinates
         zoom: 7, // Example zoom level
-        label: "Territorios Indigenas, Traslape Total: Por Definir"
+        label: "Indigenous Territories (RAISG)"
     },
     "Zona Intangible Tagaeri-Taromenani": {
         data: zonaITT,
