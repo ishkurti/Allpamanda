@@ -34,35 +34,35 @@ var territories = {
         data: sionaCuyabeno,
         center: [-0.1, -76.0], // Example coordinates
         zoom: 10, // Example zoom level
-        label: "Siona Cuyabeno Territory",
+        label: "Siona Cuyabeno, Traslape: 130.000ha",
         imageUrl: './charts/sionaCuyabeno.png'
     },
     "Siekopai Aguarico": {  
         data: siekopaiAguarico,
         center: [-0.33052,-76.35], 
         zoom: 11,
-        label: "Siekopai Aguarico Territory",
+        label: "Siekopai Aguarico, Traslape: Por Definir",
         imageUrl: './charts/siekopaiAguarico.png'
     },
     "Waorani": {
         data: waoraniTitulado,
         center: [-1.1434,-76.75],
         zoom: 9,
-        label: "Waorani Territory",
+        label: "Waorani, Traslape: Por Definir",
         imageUrl: './charts/waorani.png'
     },
     "Cofan Sinangoe": {
         data: cofanSinangoe,
         center: [0.1,-77.5],
         zoom: 10,
-        label: "Cofan Sinangoe Territory",
+        label: "Cofan Sinangoe, Traslape: 63.000ha",
         imageUrl: './charts/cofanSinangoe.png'
     },
     "Cofan Bermejo": {
         data: cofanBermejo,
         center: [0.3,-77.29118],
         zoom: 11,
-        label: "Cofan Bermejo Territory",
+        label: "Cofan Bermejo, Traslape: 52.000ha",
         imageUrl: './charts/cofanBermejo.png'
     },
     // "Cofan Dureno": {
@@ -90,7 +90,7 @@ var territories = {
         data: territoriosRAISG,
         center: [-1.7, -77.5], // Example coordinates
         zoom: 7, // Example zoom level
-        label: "Indigenous Territories (RAISG)"
+        label: "Territorios Indigenas, Traslape Total: Por Definir"
     },
     "Zona Intangible Tagaeri-Taromenani": {
         data: zonaITT,
