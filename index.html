@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deforestation on Indigenous Territories</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Include Leaflet CSS and JavaScript -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+  <main>
+
+    <h1 style="padding-top: 5px; text-align: left; margin-left: 14px;">Pueblos Indígenas, SNAP, y Amenazas Territoriales en la Amazonia Ecuatoriana</h1>
+
+    <div id="map-container">
+        <div id="map" style="width: 90%; height: 620px; margin-left: 15px;"></div>
+        <div id="slider-container">
+            <div id="slider-title">Deforestación</div>
+            <input id="mySlider" type="range" value="2001" name="Test" min="2001" max="2022" oninput="mySlider(value)">
+            <div id="year-text">2001</div>
+        </div>
+    </div>
+
+    <div id="image-container"></div>
+   
+    <div id="map" style="width: 100%; height: 600px;"></div>
+ 
+    <script src="./data/cofanBermejo.js"></script>
+    <script src="./data/cofanDureno.js"></script>
+    <script src="./data/cofanDuvuno.js"></script>
+    <script src="./data/cofanSinangoe.js"></script>
+    <script src="./data/sionaCuyabeno.js"></script>
+    <script src="./data/siekopaiAguarico.js"></script>
+    <script src="./data/waoraniTitulado.js"></script>
+    <script src="./data/shuarArutam.js"></script>
+    <script src="./data/reservaCuyabeno.js"></script>
+    <script src="./data/reservaYasuni.js"></script>
+    <script src="./data/viasPrincipales.js"></script>
+    <script src="./data/zonaITT.js"></script>
+    <script src="./data/ecuadorRAISG.js"></script>
+    <script src="./threats/areasProtegidas.js"></script>
+    <script src="./threats/bloquesPetro.js"></script>
+    <script src="./threats/camposPetro.js"></script>
+    <script src="./threats/catastroMinero.js"></script>
+    <script src="./threats/oleoductos.js"></script>
+    <script src="./threats/palmaAfricana.js"></script>
+    <script src="./threats/pozosPetro.js"></script>
+    <script src="./threats/bosquesProtectores.js"></script>
+  
+    <script src="./scriptSliderV2SP.js"></script>
+
+
+  </main>
+</body>
+</html>

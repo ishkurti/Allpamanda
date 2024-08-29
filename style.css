@@ -1,0 +1,124 @@
+#map {
+    margin-top: 0px; /* No top margin */
+    height: 600px; /* Fixed height */
+    width: 75%; /* Set width to 75% of the parent container */
+    position: relative; /* Maintain relative positioning */
+}
+
+#map-container {
+    position: relative; /* Ensure the map container has relative positioning */
+}
+
+#slider-container {
+    position: absolute;
+    bottom: 25px; /* Adjust vertical positioning */
+    left: 145px; /* Adjust horizontal positioning */
+    width: 60%;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 5px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+
+#slider-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px; /* Adjust spacing between title and slider */
+}
+
+#mySlider {
+    flex: 1; /* Allow the slider to take up remaining space */
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#mySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #ff0f0f;
+    cursor: pointer;
+}
+
+#mySlider:-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+#year-text {
+    margin-top: 2px; /* Add margin to separate from the slider */
+    text-align: center; /* Align text to the center */
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left:10px;
+}
+
+.custom-buttons {
+    position: absolute;
+    left: 10px; /* Adjust as needed to avoid overlapping with the slider */
+    top: 10px; /* Adjust as needed */
+    z-index: 1010; /* Higher than the slider to prevent overlap */
+    display: flex;
+    flex-direction: column;
+}
+
+.territory-button {
+    margin-bottom: 2px;
+    padding: 8px 16px;
+    background: #4CAF50; /* Green background */
+    color: white;
+    font-family: 'Lato', sans-serif; /* Lato font */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.territory-button:hover {
+    background: #367B3F; /* Darker green on hover */
+}
+
+h1 {
+    font-family: 'Lato', sans-serif; /* Consistent font for the page */
+    text-align: center; /* Centers the title on the page */
+    color: #103e13; /* Green color to match button styling */
+    margin-top: 20px; /* Spacing from the top of the page */
+    margin-bottom: 20px; /* Spacing above the map and slider */
+    font-weight: bold;
+}
+
+.reset-view-button {
+    background-color: #e94e46; /* Red color for the reset button */
+    color: white; /* White text color for better visibility */
+    border: none; /* Optional: removes border if present */
+    border-radius: 4px; /* Keeps consistent styling with other buttons */
+    margin-bottom: 4px; /* Adds some spacing between this button and others */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.reset-view-button:hover {
+    background-color: #ba321a; /* Darker red on hover for interactive feedback */
+}
+
+
