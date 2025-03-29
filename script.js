@@ -505,8 +505,8 @@ map.on("zoomend", function () {
 
 var overlayMaps = {
     "Territorios parte del informe Allpamanda": territoriosAllpamanda,  
-    "Conflictos y Amenazas": conflictosLayer,
     "Áreas Protegidas (SNAP)": nationalParks,
+    "Conflictos y Amenazas": conflictosLayer,
     "Bosques Protectores": protectedForests,
     "Territorios Indigenas en Ecuador (RAISG)": territoriosRAISG,
     "Bloques Petroleros": oilBlocks,
