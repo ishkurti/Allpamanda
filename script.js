@@ -201,28 +201,39 @@ var customControl = L.control({position: 'topleft'});
 
 customControl.onAdd = function(map) {
     var div = L.DomUtil.create('div', 'custom-buttons');
-    
-    // Create the reset button with a specific class for styling
+
+    // ✅ Create the reset button
     var resetBtn = L.DomUtil.create('button', 'territory-button reset-view-button', div);
     resetBtn.innerHTML = "Reiniciar Mapa";
     resetBtn.onclick = function() {
+        // Turn off all custom territory layers
         Object.values(territories).forEach(t => {
-            if (map.hasLayer(t.layer)) {
-                map.removeLayer(t.layer);  // Turn off all territory layers
+            if (t.layer && map.hasLayer(t.layer)) {
+                map.removeLayer(t.layer);
             }
         });
 
-        map.setView([-1.7, -77.5], 7);  // Resetting to the initial view
+        // Reset map view
+        map.setView([-1.7, -77.5], 7);
 
-        // Turn off all layers in overlayMaps
+        // Remove all overlay layers
         Object.values(overlayMaps).forEach(layer => {
             if (map.hasLayer(layer)) {
                 map.removeLayer(layer);
             }
         });
+
+        // ✅ Re-add default layers
+        map.addLayer(territoriosAllpamanda);
+        map.addLayer(nationalParks);
+
+        // ✅ Only add conflictosLayer if zoom level is 9+
+        if (map.getZoom() >= 9 && !map.hasLayer(conflictosLayer)) {
+            map.addLayer(conflictosLayer);
+        }
     };
 
-    // Add buttons for each territory
+    // Add buttons for each defined territory
     Object.keys(territories).forEach(key => {
         var btn = L.DomUtil.create('button', 'territory-button', div);
         btn.innerHTML = key;
@@ -234,9 +245,9 @@ customControl.onAdd = function(map) {
     return div;
 };
 
-
 addTerritories();
 customControl.addTo(map);
+
 
 
 // add the layers for the layer control menu on the top right showing threats and conservation areas 
@@ -280,9 +291,9 @@ var nationalParks = L.geoJSON(areasProtegidas, {
 
   var territoriosAllpamanda = L.geoJSON(territoriosAllpamanda, {
     style: {
-      color: '#9932CC',           // Border color (Dark Orchid)
-      fillColor: '#9932CC',       // Fill color
-      fillOpacity: 0.2,           // Transparent fill
+      color: '#cc5500',         // Border color (Dark Orange)
+      fillColor: '#cc5500',     // Fill color
+      fillOpacity: 0.2,         // Transparent fill
       weight: 2
     },
     onEachFeature: function (feature, layer) {
@@ -443,10 +454,10 @@ function getConflictColor(descripcion) {
 
   descripcion = descripcion.toLowerCase(); // normalize input
 
-  if (descripcion.includes("territorial")) return "red";
-  if (descripcion.includes("titulación")) return "orange";
-  if (descripcion.includes("colonos")) return "yellow";
-  if (descripcion.includes("privado")) return "blue";
+  if (descripcion.includes("conflicto con colindantes")) return "red";
+  if (descripcion.includes("actividad extractiva")) return "orange";
+  if (descripcion.includes("amenaza territorial")) return "yellow";
+  if (descripcion.includes("conflicto con el snap")) return "purple";
 
   return "gray"; // fallback/default
 }
@@ -456,9 +467,9 @@ var conflictosLayer = L.geoJSON(conflictosTerritoriales, {
   pointToLayer: function (feature, latlng) {
       var color = getConflictColor(feature.properties.Descripcion);
       return L.circleMarker(latlng, {
-          radius: 6, // Adjust marker size
+          radius: 6,
           fillColor: color,
-          color: "black", // Border color
+          color: "black",
           weight: 1,
           opacity: 1,
           fillOpacity: 0.8
@@ -473,15 +484,31 @@ var conflictosLayer = L.geoJSON(conflictosTerritoriales, {
   }
 }).addTo(map);
 
+// Initially remove it if zoom < 9
+if (map.getZoom() < 9) {
+  map.removeLayer(conflictosLayer);
+}
 
+// Toggle conflictosLayer on zoom
+map.on("zoomend", function () {
+  if (map.getZoom() >= 9) {
+    if (!map.hasLayer(conflictosLayer)) {
+      map.addLayer(conflictosLayer);
+    }
+  } else {
+    if (map.hasLayer(conflictosLayer)) {
+      map.removeLayer(conflictosLayer);
+    }
+  }
+});
 
 
 var overlayMaps = {
-  //"Territorios (Allpamanda)": territoriosAllpamanda,  
-  "Áreas Protegidas (SNAP)": nationalParks,
-    "Bosques Protectores": protectedForests,
+    "Territorios parte del informe Allpamanda": territoriosAllpamanda,  
     "Conflictos y Amenazas": conflictosLayer,
-    "Territorios Indigenas (RAISG)": territoriosRAISG,
+    "Áreas Protegidas (SNAP)": nationalParks,
+    "Bosques Protectores": protectedForests,
+    "Territorios Indigenas en Ecuador (RAISG)": territoriosRAISG,
     "Bloques Petroleros": oilBlocks,
     "Campos Petroleros": oilFields,
     "Pozos Petroleros": pozosLayer,
@@ -505,7 +532,7 @@ var overlayMaps = {
   //map.removeLayer(nationalParks);
   map.removeLayer(protectedForests);
   map.removeLayer(territoriosRAISG);
-  map.removeLayer(conflictosLayer);
+  //map.removeLayer(conflictosLayer);
 
 // Remove the default zoom control
 map.zoomControl.remove();
