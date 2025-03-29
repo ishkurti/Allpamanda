@@ -4,7 +4,7 @@ var OSM = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: 1,
     maxZoom: 16,
     tms: false,
-    attribution: 'Mapa Borrador por Ina Shkurti'
+    attribution: 'Mapa por Ina Shkurti y Fundación TIAM'
 }).addTo(map).bringToBack();
 
 var myTileLayer = L.tileLayer('https://cartocollective.blob.core.windows.net/deforestation/2001/{z}/{x}/{y}.png', {
@@ -37,27 +37,6 @@ var territories = {
         label: "Siona Cuyabeno, Traslape: 130.000ha",
         imageUrl: './charts/sionaCuyabeno.png'
     },
-    "Siekopai Aguarico": {  
-        data: siekopaiAguarico,
-        center: [-0.33052,-76.35], 
-        zoom: 11,
-        label: "Siekopai Aguarico, Traslape: Por Definir",
-        imageUrl: './charts/siekopaiAguarico.png'
-    },
-    "Waorani": {
-        data: waoraniTitulado,
-        center: [-1.1434,-76.75],
-        zoom: 9,
-        label: "Waorani, Traslape: Por Definir",
-        imageUrl: './charts/waorani.png'
-    },
-    "Cofan Sinangoe": {
-        data: cofanSinangoe,
-        center: [0.1,-77.5],
-        zoom: 10,
-        label: "Cofan Sinangoe, Traslape: 63.000ha",
-        imageUrl: './charts/cofanSinangoe.png'
-    },
     "Cofan Bermejo": {
         data: cofanBermejo,
         center: [0.3,-77.29118],
@@ -65,39 +44,12 @@ var territories = {
         label: "Cofan Bermejo, Traslape: 52.000ha",
         imageUrl: './charts/cofanBermejo.png'
     },
-    // "Cofan Dureno": {
-    //     data: cofanDureno,
-    //     center: [0.005,-76.7],
-    //     zoom: 12,
-    //     label: "Cofan Dureno Territory",
-    //     imageUrl: './charts/cofanDureno.png'
-    // },
-    // "Cofan Duvuno": {
-    //     data: cofanDuvuno,
-    //     center: [0.00696,-77.11630],
-    //     zoom: 11,
-    //     label: "Cofan Duvuno Territory",
-    //     imageUrl: './charts/cofanDuvuno.png'
-    // },
-    "Shuar Arutam": {
-        data: shuarArutam,
-        center: [-3.25,-78.1],
-        zoom: 10,
-        label: "Shuar Arutam Territory",
-        imageUrl: './charts/shuarArtuam.png'
-    },
   "Indigenous Territories (RAISG)": {
         data: territoriosRAISG,
         center: [-1.7, -77.5], // Example coordinates
         zoom: 7, // Example zoom level
         label: "Indigenous Territories (RAISG)"
     },
-    "Zona Intangible Tagaeri-Taromenani": {
-        data: zonaITT,
-        center: [-1.35103,-75.7],
-        zoom: 9,
-        label: "Zona Intangible Tagaeri-Taromenani"
-    }
 };
 
 var territoryLayers = {};
