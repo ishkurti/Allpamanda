@@ -493,7 +493,7 @@ var overlayMaps = {
  // new legend control on the top right 
  var layerControl = L.control.layers(null, overlayMaps, {
     position: 'topright',
-    collapsed: true
+    collapsed: false
   }).addTo(map);
 
   map.removeLayer(oilBlocks);
