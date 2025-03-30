@@ -7,27 +7,27 @@ var OSM = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Mapa por Ina Shkurti y Fundación TIAM'
 }).addTo(map).bringToBack();
 
-var myTileLayer = L.tileLayer('https://cartocollective.blob.core.windows.net/deforestation/2001/{z}/{x}/{y}.png', {
-    minZoom: 1,
-    maxNativeZoom: 12,
-    maxZoom: 16,
-    tms: false
-}).addTo(map);
+// var myTileLayer = L.tileLayer('https://cartocollective.blob.core.windows.net/deforestation/2001/{z}/{x}/{y}.png', {
+//     minZoom: 1,
+//     maxNativeZoom: 12,
+//     maxZoom: 16,
+//     tms: false
+// }).addTo(map);
 
-function addTileLayer(year) {
-    map.removeLayer(myTileLayer);
-    var tileAddress = 'https://cartocollective.blob.core.windows.net/deforestation/' + year + '/{z}/{x}/{y}.png';
-    myTileLayer = L.tileLayer(tileAddress, {
-        maxNativeZoom: 12,
-        maxZoom: 16,
-        tms: false
-    }).addTo(map);
-    document.getElementById('year-text').textContent = year;
-}
+// function addTileLayer(year) {
+//     map.removeLayer(myTileLayer);
+//     var tileAddress = 'https://cartocollective.blob.core.windows.net/deforestation/' + year + '/{z}/{x}/{y}.png';
+//     myTileLayer = L.tileLayer(tileAddress, {
+//         maxNativeZoom: 12,
+//         maxZoom: 16,
+//         tms: false
+//     }).addTo(map);
+//     document.getElementById('year-text').textContent = year;
+// }
 
-function mySlider(value) {
-    addTileLayer(value);
-}
+// function mySlider(value) {
+//     addTileLayer(value);
+// }
 
 var territories = {  
     

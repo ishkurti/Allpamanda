@@ -9,6 +9,68 @@
     position: relative; /* Ensure the map container has relative positioning */
 }
 
+#slider-container {
+    position: absolute;
+    bottom: 25px; /* Adjust vertical positioning */
+    left: 145px; /* Adjust horizontal positioning */
+    width: 60%;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 5px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+
+#slider-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px; /* Adjust spacing between title and slider */
+}
+
+#mySlider {
+    flex: 1; /* Allow the slider to take up remaining space */
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#mySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #ff0f0f;
+    cursor: pointer;
+}
+
+#mySlider:-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+#year-text {
+    margin-top: 2px; /* Add margin to separate from the slider */
+    text-align: center; /* Align text to the center */
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left:10px;
+}
+
 .custom-buttons {
     position: absolute;
     left: 10px; /* Adjust as needed to avoid overlapping with the slider */
